@@ -174,7 +174,7 @@ var players = [
 //Three group: Dragons. Sharks, Raptors
 var dragonsTeam: [[String:Any]] = []
 var sharksTeam: [[String:Any]] = []
-var RaptorsTeam: [[String:Any]] = []
+var raptorsTeam: [[String:Any]] = []
 
 //Sort by experience and append them into dictionary
 var hasExperience: [[String:Any]] = []
@@ -191,27 +191,59 @@ for player in players {
 
 //group experience players and no experience in each team with evenly numbers of experience/ no experience players
 for expPlayers in hasExperience {
-if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= RaptorsTeam.count {
+if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= raptorsTeam.count {
     sharksTeam.append(expPlayers)
-    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= RaptorsTeam.count {
+    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= raptorsTeam.count {
         dragonsTeam.append(expPlayers)
     } else {
-        RaptorsTeam.append(expPlayers)
+        raptorsTeam.append(expPlayers)
     }
 }
 
 for noExpPlayers in noExperience {
-    if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= RaptorsTeam.count {
+    if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= raptorsTeam.count {
         sharksTeam.append(noExpPlayers)
-    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= RaptorsTeam.count {
+    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= raptorsTeam.count {
         dragonsTeam.append(noExpPlayers)
     } else {
-        RaptorsTeam.append(noExpPlayers)
+        raptorsTeam.append(noExpPlayers)
     }
 }
 
 
+/* 
+-------------------------------------------------result for each team--------------------------------------------------------
+print(dragonsTeam)
+[["name": "Jill Tanner", "height": 36.0, "hasExperience": true, "guardian": "Clara Tanner"], 
+ ["name": "Suzanne Greenberg", "height": 44.0, "hasExperience": true, "guardian": "Henrietta Dumas"], 
+ ["name": "Les Clay", "height": 42.0, "hasExperience": true, "guardian": "Wynonna Brown"], 
+ ["name": "Matt Gill", "height": 40.0, "hasExperience": false, "guardian": "Charles and Sylvia Gill"], 
+ ["name": "Sal Dali", "height": 41.0, "hasExperience": false, "guardian": "Gala Dali"], 
+ ["name": "Chloe Alaska", "height": 47.0, "hasExperience": false, "guardian": "David and Jamie Alaska"]]
 
+dragonsTeam.count //6
+ 
+print(sharksTeam)
+ [["name": "Joe Smith", "height": 42.0, "hasExperience": true, "guardian": "Jim and Jan Smith"], 
+  ["name": "Karl Saygan", "height": 42.0, "hasExperience": true, "guardian": "Heather Bledsoe"], 
+  ["name": "Phillip Helm", "height": 44.0, "hasExperience": true, "guardian": "Thomas Helm and Eva Jones"], 
+  ["name": "Eva Gordon", "height": 45.0, "hasExperience": false, "guardian": "Wendy and Mike Gordon"], 
+  ["name": "Sammy Adams", "height": 45.0, "hasExperience": false, "guardian": "Jeff Adams"], 
+  ["name": "Ben Finkelstein", "height": 44.0, "hasExperience": false, "guardian": "Aaron and Jill Finkelstein"]]
+
+sharksTeam.count //6
+ 
+print(raptorsTeam)
+ [["name": "Bill Bon", "height": 43.0, "hasExperience": true, "guardian": "Sara and Jenny Bon"], 
+  ["name": "Diego Soto", "height": 41.0, "hasExperience": true, "guardian": "Robin and Sarika Soto"], 
+  ["name": "Herschel Krustofski", "height": 45.0, "hasExperience": true, "guardian": "Hyman and Rachel Krustofski"], 
+  ["name": "Kimmy Stein", "height": 41.0, "hasExperience": false, "guardian": "Bill and Hillary Stein"], 
+  ["name": "Joe Kavalier", "height": 39.0, "hasExperience": false, "guardian": "Sam and Elaine Kavalier"], 
+  ["name": "Arnold Willis", "height": 43.0, "hasExperience": false, "guardian": "Claire Willis"]]
+ 
+raptorsTeam.count //6 
+-------------------------------------------------result for each team--------------------------------------------------------
+*/
 
 
 
