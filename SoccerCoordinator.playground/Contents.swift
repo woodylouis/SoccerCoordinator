@@ -173,15 +173,28 @@ var players = [
 
 
 
-//Three group creation: Dragons. Sharks, Raptors
+//Three group: Dragons. Sharks, Raptors
 var dragonsTeam: [[String:Any]] = []
 var sharksTeam: [[String:Any]] = []
 var Raptors: [[String:Any]] = []
 
+//Sort by experience
 var hasExperience: [[String:Any]] = []
 var noExperience: [[String:Any]] = []
 
+for player in players {
+    
+    var isExperenced: Bool = player["hasExperience"] as! Bool
+    
+    if isExperenced == true {
+        hasExperience.append(player)
+    } else {
+        noExperience.append(player)
+    }
+    
+    
 
+}
     
     
 
