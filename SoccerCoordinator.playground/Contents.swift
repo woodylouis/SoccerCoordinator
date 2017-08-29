@@ -181,6 +181,7 @@ for player in players {
 }
 
 //group experience players and no experience in each team with evenly numbers of experience/no experience players
+//only experienced players will be updated
 for expPlayers in hasExperience {
     if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= raptorsTeam.count {
     sharksTeam.append(expPlayers)
@@ -193,6 +194,7 @@ for expPlayers in hasExperience {
     }
 }
 
+// all players for each team will be updated here (Experienced + no experienced)
 for noExpPlayers in noExperience {
     if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= raptorsTeam.count {
         sharksTeam.append(noExpPlayers)
@@ -207,7 +209,7 @@ for noExpPlayers in noExperience {
 
 
 /* 
-             -------------------------------------------------result for each team--------------------------------------------------------
+             -------------------------------------------------Potential result for each team--------------------------------------------------------
 print(dragonsTeam)
 [["name": "Jill Tanner", "height": 36.0, "hasExperience": true, "guardian": "Clara Tanner"], 
  ["name": "Suzanne Greenberg", "height": 44.0, "hasExperience": true, "guardian": "Henrietta Dumas"], 
@@ -237,7 +239,7 @@ print(raptorsTeam)
   ["name": "Arnold Willis", "height": 43.0, "hasExperience": false, "guardian": "Claire Willis"]]
  
 raptorsTeam.count //6
-             -------------------------------------------------result for each team--------------------------------------------------------
+             -------------------------------------------------Potential result for each team--------------------------------------------------------
 */
 
 /*
@@ -259,10 +261,48 @@ raptorsTeam.count //6
  */
 
 
-//
+/* 
+Dear /guardianName:
+ 
+    We are glad to confirm that /playerName have been selected by /team.
+ 
+    The first pracice will occur at /practice date/time
+ 
+    We are looking forward to seeing you!!
 
+Best Regards,
+/team
 
+*/
 
+var letters: [String] = []
+for dragonsPlayers in dragonsTeam {
+    let playersName = dragonsPlayers["name"] as! String
+    let guardianNames = dragonsPlayers["guardian"] as! String
+    let letter = "Dear \(guardianNames): \n\nWe are glad to confirm that \(playersName) have been selected by Dragons. The first pracice will occur at March 17, 3pm. We are looking forward to seeing you!! \n\nBest Regards, \n\nDragon Team\n\n"
+    
+    letters.append(letter)
+}
+
+for sharksPlayers in sharksTeam {
+    let playersName = sharksPlayers["name"] as! String
+    let guardianNames = sharksPlayers["guardian"] as! String
+    let letter = "Dear \(guardianNames): \n\nWe are glad to confirm that \(playersName) have been selected by Sharks. The first pracice will occur at March 17, 3pm. We are looking forward to seeing you!! \n\nBest Regards, \n\nSharks Team\n\n"
+    
+    letters.append(letter)
+}
+
+for raportsPlayers in raptorsTeam {
+    let playersName = raportsPlayers["name"] as! String
+    let guardianNames = raportsPlayers["guardian"] as! String
+    let letter = "Dear \(guardianNames): \n\nWe are glad to confirm that \(playersName) have been selected by Raports. The first pracice will occur at March 17, 3pm. We are looking forward to seeing you!! \n\nBest Regards, \n\nRaports Team\n\n"
+    
+    letters.append(letter)
+}
+
+for letter in letters {
+    print(letter)
+}
 
 
 
