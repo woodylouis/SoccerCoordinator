@@ -171,32 +171,45 @@ var players = [
     player17,
     player18]
 
-
-
 //Three group: Dragons. Sharks, Raptors
 var dragonsTeam: [[String:Any]] = []
 var sharksTeam: [[String:Any]] = []
-var Raptors: [[String:Any]] = []
+var RaptorsTeam: [[String:Any]] = []
 
-//Sort by experience
+//Sort by experience and append them into dictionary
 var hasExperience: [[String:Any]] = []
 var noExperience: [[String:Any]] = []
 
 for player in players {
-    
-    var isExperenced: Bool = player["hasExperience"] as! Bool
-    
+    let isExperenced: Bool = player["hasExperience"] as! Bool
     if isExperenced == true {
         hasExperience.append(player)
     } else {
         noExperience.append(player)
     }
-    
-    
-
 }
-    
-    
+
+//group experience players and no experience in each team with evenly numbers of experience/ no experience players
+for expPlayers in hasExperience {
+if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= RaptorsTeam.count {
+    sharksTeam.append(expPlayers)
+    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= RaptorsTeam.count {
+        dragonsTeam.append(expPlayers)
+    } else {
+        RaptorsTeam.append(expPlayers)
+    }
+}
+
+for noExpPlayers in noExperience {
+    if sharksTeam.count <= dragonsTeam.count && sharksTeam.count <= RaptorsTeam.count {
+        sharksTeam.append(noExpPlayers)
+    } else if dragonsTeam.count <= sharksTeam.count && dragonsTeam.count <= RaptorsTeam.count {
+        dragonsTeam.append(noExpPlayers)
+    } else {
+        RaptorsTeam.append(noExpPlayers)
+    }
+}
+
 
 
 
